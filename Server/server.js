@@ -1,0 +1,30 @@
+import express from 'express';
+import dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
+import authRoutes from './routes/authRoutes.js';
+import carRoutes from './routes/carRoutes.js';
+import cors from 'cors'
+import connectDB from './configs/db.js';
+import swaggerDocs from './configs/swagger.js';
+
+
+dotenv.config();
+
+const app = express();
+
+app.use(cors({
+    origin: 'http://localhost:5173', // Allow requests from this origin
+    methods: 'GET,POST,PUT,DELETE', // Specify allowed HTTP methods
+    credentials: true, // Allow cookies if needed
+}));
+app.use(express.json());
+app.use('/api/auth', authRoutes);
+app.use('/api/cars', carRoutes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+connectDB();
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
