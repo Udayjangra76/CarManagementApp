@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: 'https://car-management-app-2zx1.vercel.app/', // Allow requests from this origin
+    origin: 'https://car-management-app-2zx1.vercel.app', // Allow requests from this origin
     methods: 'GET,POST,PUT,DELETE', // Specify allowed HTTP methods
     credentials: true, // Allow cookies if needed
 }));
