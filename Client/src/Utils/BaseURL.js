@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const newRequest = axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: "https://car-management-app-one.vercel.app",
     withCredentials: true,
 });
 
