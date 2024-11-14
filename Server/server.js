@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from this origin
+    origin: 'https://car-management-app-2zx1.vercel.app/', // Allow requests from this origin
     methods: 'GET,POST,PUT,DELETE', // Specify allowed HTTP methods
     credentials: true, // Allow cookies if needed
 }));
@@ -25,6 +25,10 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 connectDB();
 
 const PORT = process.env.PORT || 5000;
+
+app.get('/', (req, res) => {
+    res.send("Hello");
+})
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
