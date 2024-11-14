@@ -67,7 +67,7 @@ const swaggerOptions = {
         ],
         servers: [
             {
-                url: 'http://localhost:5000',
+                url: 'https://car-management-app-one.vercel.app/',
             },
         ],
     },
