@@ -67,7 +67,7 @@ const swaggerOptions = {
         ],
         servers: [
             {
-                url: 'https://car-management-app-one.vercel.app',
+                url: 'https://carmanagementapp-dbo5.onrender.com',
             },
         ],
     },
