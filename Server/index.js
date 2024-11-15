@@ -6,8 +6,6 @@ import carRoutes from './routes/carRoutes.js';
 import cors from 'cors'
 import connectDB from './configs/db.js';
 import swaggerDocs from './configs/swagger.js';
-const CSS_URL =
-    "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 
 dotenv.config();
 
@@ -21,12 +19,7 @@ app.use(cors({
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/cars', carRoutes);
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-app.use(
-    "/api-docs",
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerDocs, { customCssUrl: CSS_URL })
-);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 connectDB();
 
 const PORT = process.env.PORT || 5000;
